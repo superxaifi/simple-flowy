@@ -1,0 +1,14 @@
+<div #boundry id="div_boundary" style="margin:1% 1% 1% 1%; border: 1px solid black;" (click)="ConnectRefNode($event)">
+
+  <mat-card class="card-box" cdkDrag (cdkDragMoved)="dragStarted($event)" [id]="item.id" [cdkDragBoundary]="boundry"
+    *ngFor="let item of nodes; let i=index">
+    <h2>{{item.text + " (" + item.id + ") " + i}}</h2>
+
+    <button type="button" (click)="createNode(item.id)">Create New Node</button>
+    <hr>
+    <button type="button" (click)="connectNode(item.id,$event)">Connect to Node</button>
+
+  </mat-card>
+
+  <div id="sticky-point"></div>
+</div>
